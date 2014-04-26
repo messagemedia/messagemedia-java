@@ -80,19 +80,20 @@ public class MessageMediaSoapClient {
 	 * This example demonstrates how to wrap the complexity associated with
 	 * packaging up a message into a single method call for sending a single
 	 * message.
-	 * @param from 		From phone number - also known as Origin
+	 * @param from 		From phone number - also known as Origin (contact MessageMedia Support to enable)
 	 * @param to		To phone number
-	 * @param message   The content of the message
+	 * @param messageContent   The content of the message
+	 * @param deliveryReport   Request delivery report (charges may apply)
 	 * @param messageId Your message identifier
 	 * @return SendMessagesResultType object.
 	 */
-	public SendMessagesResultType SendMessage(String from, String to, String messageContent, long messageId)
+	public SendMessagesResultType SendMessage(String from, String to, String messageContent, Boolean deliveryReport, long messageId)
 			throws FaultResponse, RemoteException {
 		
 		// Construct the message
 		MessageType message = new MessageType();
 		message.setContent(messageContent);
-		message.setDeliveryReport(true);
+		message.setDeliveryReport(deliveryReport);
 		message.setFormat(MessageFormatType.SMS);
 		message.setValidityPeriod((short) 1);
 		message.setSequenceNumber((long) 1);

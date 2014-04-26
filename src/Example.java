@@ -68,7 +68,7 @@ public class Example {
             long messageId = 1234567890;
 
             MessageMediaSoapClient client = new MessageMediaSoapClient(userId, password);
-            SendMessagesResultType result = client.SendMessage(sentFromNumber, sentToNumber, "Test Message", messageId);
+            SendMessagesResultType result = client.SendMessage(sentFromNumber, sentToNumber, "Test Message", false, messageId);
             DisplaySendMessageResult(result);
         }
         catch (Exception ex)
